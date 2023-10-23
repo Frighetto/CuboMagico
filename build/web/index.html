@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cubo Mágico</title>
+        <meta charset="UTF-8">  
+        <meta name="author" content="Lucas Fernando Frighetto">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">                     
+        <link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css">
+        <link rel="icon" href="dreamstime_s_43049321.jpg">   
+    </head>
+    <body onresize="resize()" style="background-color: whitesmoke;">
+        
+        <center>
+            <table>
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td>
+                        <button onclick="rotate_vertical_up_1()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                        </button> 
+                    </td>                
+                    <td>
+                        <button onclick="rotate_vertical_up_2()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                        </button> 
+                    </td>
+                    <td>
+                        <button onclick="rotate_vertical_up_3()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                        </button> 
+                    </td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="1-1" style="background-color: red; border: solid;"></td>                
+                    <td id="1-2" style="background-color: red; border: solid;"></td>
+                    <td id="1-3" style="background-color: red; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="1-4" style="background-color: red; border: solid;"></td>                
+                    <td id="1-5" style="background-color: red; border: solid;"></td>
+                    <td id="1-6" style="background-color: red; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="1-7" style="background-color: red; border: solid;"></td>                
+                    <td id="1-8" style="background-color: red; border: solid;"></td>
+                    <td id="1-9" style="background-color: red; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="rotate_horizontal_left_1()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                        </button> 
+                    </td>
+
+                    <td id="2-1" style="background-color: blue; border: solid;"></td>
+                    <td id="2-2" style="background-color: blue; border: solid;"></td>
+                    <td id="2-3" style="background-color: blue; border: solid;"></td>                
+
+                    <td id="3-1" style="background-color: white; border: solid;"></td>                
+                    <td id="3-2" style="background-color: white; border: solid;"></td>
+                    <td id="3-3" style="background-color: white; border: solid;"></td>
+
+                    <td id="4-1" style="background-color: green; border: solid;"></td>
+                    <td id="4-2" style="background-color: green; border: solid;"></td>
+                    <td id="4-3" style="background-color: green; border: solid;"></td>
+
+                    <td>
+                        <button onclick="rotate_horizontal_right_1()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-right"></i>
+                        </button> 
+                    </td>          
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="rotate_horizontal_left_2()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                        </button> 
+                    </td>
+
+                    <td id="2-4" style="background-color: blue; border: solid;"></td>
+                    <td id="2-5" style="background-color: blue; border: solid;"></td>
+                    <td id="2-6" style="background-color: blue; border: solid;"></td>                
+
+                    <td id="3-4" style="background-color: white; border: solid;"></td>                
+                    <td id="3-5" style="background-color: white; border: solid;"></td>
+                    <td id="3-6" style="background-color: white; border: solid;"></td>
+
+                    <td id="4-4" style="background-color: green; border: solid;"></td>
+                    <td id="4-5" style="background-color: green; border: solid;"></td>
+                    <td id="4-6" style="background-color: green; border: solid;"></td>
+
+                    <td>
+                        <button onclick="rotate_horizontal_right_2()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-right"></i>
+                        </button> 
+                    </td>          
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="rotate_horizontal_left_3()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                        </button> 
+                    </td>
+
+                    <td id="2-7" style="background-color: blue; border: solid;"></td>
+                    <td id="2-8" style="background-color: blue; border: solid;"></td>
+                    <td id="2-9" style="background-color: blue; border: solid;"></td>                
+
+                    <td id="3-7" style="background-color: white; border: solid;"></td>                
+                    <td id="3-8" style="background-color: white; border: solid;"></td>
+                    <td id="3-9" style="background-color: white; border: solid;"></td>
+
+                    <td id="4-7" style="background-color: green; border: solid;"></td>
+                    <td id="4-8" style="background-color: green; border: solid;"></td>
+                    <td id="4-9" style="background-color: green; border: solid;"></td>
+
+                    <td>
+                        <button onclick="rotate_horizontal_right_3()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-right"></i>
+                        </button> 
+                    </td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="5-1" style="background-color: orange; border: solid;"></td>                
+                    <td id="5-2" style="background-color: orange; border: solid;"></td>
+                    <td id="5-3" style="background-color: orange; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="5-4" style="background-color: orange; border: solid;"></td>                
+                    <td id="5-5" style="background-color: orange; border: solid;"></td>
+                    <td id="5-6" style="background-color: orange; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="5-7" style="background-color: orange; border: solid;"></td>                
+                    <td id="5-8" style="background-color: orange; border: solid;"></td>
+                    <td id="5-9" style="background-color: orange; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="6-1" style="background-color: yellow; border: solid;"></td>                
+                    <td id="6-2" style="background-color: yellow; border: solid;"></td>
+                    <td id="6-3" style="background-color: yellow; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="6-4" style="background-color: yellow; border: solid;"></td>                
+                    <td id="6-5" style="background-color: yellow; border: solid;"></td>
+                    <td id="6-6" style="background-color: yellow; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td id="6-7" style="background-color: yellow; border: solid;"></td>                
+                    <td id="6-8" style="background-color: yellow; border: solid;"></td>
+                    <td id="6-9" style="background-color: yellow; border: solid;"></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+                <tr>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>                
+
+                    <td>
+                        <button onclick="rotate_vertical_down_1()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </button> 
+                    </td>                
+                    <td>
+                        <button onclick="rotate_vertical_down_2()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </button> 
+                    </td>
+                    <td>
+                        <button onclick="rotate_vertical_down_3()" class="btn btn-primary" style="width: 100%; height: 100%;">
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </button> 
+                    </td>
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>          
+                </tr>
+
+            </table>
+        </center>
+    
+        <script>
+                        
+            const html = document.documentElement;
+            
+            function resize(){
+               
+                var tableCells = document.getElementsByTagName("td");     
+                var width = html.clientWidth;
+                var height = html.clientHeight;
+                                
+                const verticalPieces = 11;
+                const horizontalPieces = 14;
+                         
+                var cellWidthHeight = (width * (horizontalPieces / verticalPieces) < height ? width / verticalPieces : height / horizontalPieces);
+                
+                for(var i = 0; i < tableCells.length; i++){
+                    tableCells[i].style.width = cellWidthHeight + "px";
+                    tableCells[i].style.height = cellWidthHeight + "px";                   
+                }
+            }
+            
+            resize();
+            
+        </script>
+        
+        <script>
+            
+            function rotate_vertical_up_1(){
+                var new_color_1_1 = document.getElementById("3-1").style.backgroundColor;
+                var new_color_1_4 = document.getElementById("3-4").style.backgroundColor;
+                var new_color_1_7 = document.getElementById("3-7").style.backgroundColor;
+                
+                var new_color_3_1 = document.getElementById("5-1").style.backgroundColor;
+                var new_color_3_4 = document.getElementById("5-4").style.backgroundColor;
+                var new_color_3_7 = document.getElementById("5-7").style.backgroundColor;
+                
+                var new_color_5_1 = document.getElementById("6-1").style.backgroundColor;
+                var new_color_5_4 = document.getElementById("6-4").style.backgroundColor;
+                var new_color_5_7 = document.getElementById("6-7").style.backgroundColor;
+                
+                var new_color_6_1 = document.getElementById("1-1").style.backgroundColor;
+                var new_color_6_4 = document.getElementById("1-4").style.backgroundColor;
+                var new_color_6_7 = document.getElementById("1-7").style.backgroundColor;
+                
+                var new_color_2_1 = document.getElementById("2-3").style.backgroundColor;
+                var new_color_2_2 = document.getElementById("2-6").style.backgroundColor;
+                var new_color_2_3 = document.getElementById("2-9").style.backgroundColor;
+                var new_color_2_4 = document.getElementById("2-2").style.backgroundColor;
+                var new_color_2_6 = document.getElementById("2-8").style.backgroundColor;
+                var new_color_2_7 = document.getElementById("2-1").style.backgroundColor;
+                var new_color_2_8 = document.getElementById("2-4").style.backgroundColor;
+                var new_color_2_9 = document.getElementById("2-7").style.backgroundColor;
+                
+                document.getElementById("1-1").style.backgroundColor = new_color_1_1;
+                document.getElementById("1-4").style.backgroundColor = new_color_1_4;
+                document.getElementById("1-7").style.backgroundColor = new_color_1_7;  
+                
+                document.getElementById("3-1").style.backgroundColor = new_color_3_1;
+                document.getElementById("3-4").style.backgroundColor = new_color_3_4;
+                document.getElementById("3-7").style.backgroundColor = new_color_3_7;  
+                
+                document.getElementById("5-1").style.backgroundColor = new_color_5_1;
+                document.getElementById("5-4").style.backgroundColor = new_color_5_4;
+                document.getElementById("5-7").style.backgroundColor = new_color_5_7;  
+                
+                document.getElementById("6-1").style.backgroundColor = new_color_6_1;
+                document.getElementById("6-4").style.backgroundColor = new_color_6_4;
+                document.getElementById("6-7").style.backgroundColor = new_color_6_7;  
+                
+                document.getElementById("2-1").style.backgroundColor = new_color_2_1;
+                document.getElementById("2-2").style.backgroundColor = new_color_2_2;
+                document.getElementById("2-3").style.backgroundColor = new_color_2_3;
+                document.getElementById("2-4").style.backgroundColor = new_color_2_4;
+                document.getElementById("2-6").style.backgroundColor = new_color_2_6;
+                document.getElementById("2-7").style.backgroundColor = new_color_2_7;
+                document.getElementById("2-8").style.backgroundColor = new_color_2_8;
+                document.getElementById("2-9").style.backgroundColor = new_color_2_9;
+            }
+            
+            function rotate_vertical_up_2(){
+                var new_color_1_2 = document.getElementById("3-2").style.backgroundColor;
+                var new_color_1_5 = document.getElementById("3-5").style.backgroundColor;
+                var new_color_1_8 = document.getElementById("3-8").style.backgroundColor;
+                
+                var new_color_3_2 = document.getElementById("5-2").style.backgroundColor;
+                var new_color_3_5 = document.getElementById("5-5").style.backgroundColor;
+                var new_color_3_8 = document.getElementById("5-8").style.backgroundColor;
+                
+                var new_color_5_2 = document.getElementById("6-2").style.backgroundColor;
+                var new_color_5_5 = document.getElementById("6-5").style.backgroundColor;
+                var new_color_5_8 = document.getElementById("6-8").style.backgroundColor;
+                
+                var new_color_6_2 = document.getElementById("1-2").style.backgroundColor;
+                var new_color_6_5 = document.getElementById("1-5").style.backgroundColor;
+                var new_color_6_8 = document.getElementById("1-8").style.backgroundColor;
+                
+                document.getElementById("1-2").style.backgroundColor = new_color_1_2;
+                document.getElementById("1-5").style.backgroundColor = new_color_1_5;
+                document.getElementById("1-8").style.backgroundColor = new_color_1_8;  
+                
+                document.getElementById("3-2").style.backgroundColor = new_color_3_2;
+                document.getElementById("3-5").style.backgroundColor = new_color_3_5;
+                document.getElementById("3-8").style.backgroundColor = new_color_3_8;  
+                
+                document.getElementById("5-2").style.backgroundColor = new_color_5_2;
+                document.getElementById("5-5").style.backgroundColor = new_color_5_5;
+                document.getElementById("5-8").style.backgroundColor = new_color_5_8;  
+                
+                document.getElementById("6-2").style.backgroundColor = new_color_6_2;
+                document.getElementById("6-5").style.backgroundColor = new_color_6_5;
+                document.getElementById("6-8").style.backgroundColor = new_color_6_8;  
+            }
+            
+            function rotate_vertical_up_3(){
+                var new_color_1_3 = document.getElementById("3-3").style.backgroundColor;
+                var new_color_1_6 = document.getElementById("3-6").style.backgroundColor;
+                var new_color_1_9 = document.getElementById("3-9").style.backgroundColor;
+                
+                var new_color_3_3 = document.getElementById("5-3").style.backgroundColor;
+                var new_color_3_6 = document.getElementById("5-6").style.backgroundColor;
+                var new_color_3_9 = document.getElementById("5-9").style.backgroundColor;
+                
+                var new_color_5_3 = document.getElementById("6-3").style.backgroundColor;
+                var new_color_5_6 = document.getElementById("6-6").style.backgroundColor;
+                var new_color_5_9 = document.getElementById("6-9").style.backgroundColor;
+                
+                var new_color_6_3 = document.getElementById("1-3").style.backgroundColor;
+                var new_color_6_6 = document.getElementById("1-6").style.backgroundColor;
+                var new_color_6_9 = document.getElementById("1-9").style.backgroundColor;
+                
+                var new_color_4_1 = document.getElementById("4-7").style.backgroundColor;
+                var new_color_4_2 = document.getElementById("4-4").style.backgroundColor;
+                var new_color_4_3 = document.getElementById("4-1").style.backgroundColor;
+                var new_color_4_4 = document.getElementById("4-8").style.backgroundColor;
+                var new_color_4_6 = document.getElementById("4-2").style.backgroundColor;
+                var new_color_4_7 = document.getElementById("4-9").style.backgroundColor;
+                var new_color_4_8 = document.getElementById("4-6").style.backgroundColor;
+                var new_color_4_9 = document.getElementById("4-3").style.backgroundColor;
+                
+                document.getElementById("1-3").style.backgroundColor = new_color_1_3;
+                document.getElementById("1-6").style.backgroundColor = new_color_1_6;
+                document.getElementById("1-9").style.backgroundColor = new_color_1_9;  
+                
+                document.getElementById("3-3").style.backgroundColor = new_color_3_3;
+                document.getElementById("3-6").style.backgroundColor = new_color_3_6;
+                document.getElementById("3-9").style.backgroundColor = new_color_3_9;  
+                
+                document.getElementById("5-3").style.backgroundColor = new_color_5_3;
+                document.getElementById("5-6").style.backgroundColor = new_color_5_6;
+                document.getElementById("5-9").style.backgroundColor = new_color_5_9;  
+                
+                document.getElementById("6-3").style.backgroundColor = new_color_6_3;
+                document.getElementById("6-6").style.backgroundColor = new_color_6_6;
+                document.getElementById("6-9").style.backgroundColor = new_color_6_9;  
+                
+                document.getElementById("4-1").style.backgroundColor = new_color_4_1;
+                document.getElementById("4-2").style.backgroundColor = new_color_4_2;
+                document.getElementById("4-3").style.backgroundColor = new_color_4_3;
+                document.getElementById("4-4").style.backgroundColor = new_color_4_4;
+                document.getElementById("4-6").style.backgroundColor = new_color_4_6;
+                document.getElementById("4-7").style.backgroundColor = new_color_4_7;
+                document.getElementById("4-8").style.backgroundColor = new_color_4_8;
+                document.getElementById("4-9").style.backgroundColor = new_color_4_9;
+            }
+            
+            function rotate_horizontal_left_1(){
+                var new_color_2_1 = document.getElementById("3-1").style.backgroundColor;
+                var new_color_2_2 = document.getElementById("3-2").style.backgroundColor;
+                var new_color_2_3 = document.getElementById("3-3").style.backgroundColor;
+                
+                var new_color_3_1 = document.getElementById("4-1").style.backgroundColor;
+                var new_color_3_2 = document.getElementById("4-2").style.backgroundColor;
+                var new_color_3_3 = document.getElementById("4-3").style.backgroundColor;
+                
+                var new_color_4_1 = document.getElementById("6-1").style.backgroundColor;
+                var new_color_4_2 = document.getElementById("6-2").style.backgroundColor;
+                var new_color_4_3 = document.getElementById("6-3").style.backgroundColor;
+                
+                var new_color_6_1 = document.getElementById("2-1").style.backgroundColor;
+                var new_color_6_2 = document.getElementById("2-2").style.backgroundColor;
+                var new_color_6_3 = document.getElementById("2-3").style.backgroundColor;
+                
+                var new_color_1_1 = document.getElementById("1-7").style.backgroundColor;
+                var new_color_1_2 = document.getElementById("1-4").style.backgroundColor;
+                var new_color_1_3 = document.getElementById("1-1").style.backgroundColor;
+                var new_color_1_4 = document.getElementById("1-8").style.backgroundColor;
+                var new_color_1_6 = document.getElementById("1-2").style.backgroundColor;
+                var new_color_1_7 = document.getElementById("1-9").style.backgroundColor;
+                var new_color_1_8 = document.getElementById("1-6").style.backgroundColor;
+                var new_color_1_9 = document.getElementById("1-3").style.backgroundColor;
+                
+                document.getElementById("2-1").style.backgroundColor = new_color_2_1;
+                document.getElementById("2-2").style.backgroundColor = new_color_2_2;
+                document.getElementById("2-3").style.backgroundColor = new_color_2_3;  
+                
+                document.getElementById("3-1").style.backgroundColor = new_color_3_1;
+                document.getElementById("3-2").style.backgroundColor = new_color_3_2;
+                document.getElementById("3-3").style.backgroundColor = new_color_3_3;  
+                
+                document.getElementById("4-1").style.backgroundColor = new_color_4_1;
+                document.getElementById("4-2").style.backgroundColor = new_color_4_2;
+                document.getElementById("4-3").style.backgroundColor = new_color_4_3;  
+                
+                document.getElementById("6-1").style.backgroundColor = new_color_6_1;
+                document.getElementById("6-2").style.backgroundColor = new_color_6_2;
+                document.getElementById("6-3").style.backgroundColor = new_color_6_3;  
+                
+                document.getElementById("1-1").style.backgroundColor = new_color_1_1;
+                document.getElementById("1-2").style.backgroundColor = new_color_1_2;
+                document.getElementById("1-3").style.backgroundColor = new_color_1_3;
+                document.getElementById("1-4").style.backgroundColor = new_color_1_4;
+                document.getElementById("1-6").style.backgroundColor = new_color_1_6;
+                document.getElementById("1-7").style.backgroundColor = new_color_1_7;
+                document.getElementById("1-8").style.backgroundColor = new_color_1_8;
+                document.getElementById("1-9").style.backgroundColor = new_color_1_9;
+            }
+            
+            function rotate_horizontal_left_2(){
+                var new_color_2_4 = document.getElementById("3-4").style.backgroundColor;
+                var new_color_2_5 = document.getElementById("3-5").style.backgroundColor;
+                var new_color_2_6 = document.getElementById("3-6").style.backgroundColor;
+                
+                var new_color_3_4 = document.getElementById("4-4").style.backgroundColor;
+                var new_color_3_5 = document.getElementById("4-5").style.backgroundColor;
+                var new_color_3_6 = document.getElementById("4-6").style.backgroundColor;
+                
+                var new_color_4_4 = document.getElementById("6-4").style.backgroundColor;
+                var new_color_4_5 = document.getElementById("6-5").style.backgroundColor;
+                var new_color_4_6 = document.getElementById("6-6").style.backgroundColor;
+                
+                var new_color_6_4 = document.getElementById("2-4").style.backgroundColor;
+                var new_color_6_5 = document.getElementById("2-5").style.backgroundColor;
+                var new_color_6_6 = document.getElementById("2-6").style.backgroundColor;
+                
+                document.getElementById("2-4").style.backgroundColor = new_color_2_4;
+                document.getElementById("2-5").style.backgroundColor = new_color_2_5;
+                document.getElementById("2-6").style.backgroundColor = new_color_2_6;  
+                
+                document.getElementById("3-4").style.backgroundColor = new_color_3_4;
+                document.getElementById("3-5").style.backgroundColor = new_color_3_5;
+                document.getElementById("3-6").style.backgroundColor = new_color_3_6;  
+                
+                document.getElementById("4-4").style.backgroundColor = new_color_4_4;
+                document.getElementById("4-5").style.backgroundColor = new_color_4_5;
+                document.getElementById("4-6").style.backgroundColor = new_color_4_6;  
+                
+                document.getElementById("6-4").style.backgroundColor = new_color_6_4;
+                document.getElementById("6-5").style.backgroundColor = new_color_6_5;
+                document.getElementById("6-6").style.backgroundColor = new_color_6_6;  
+            }
+            
+            function rotate_horizontal_left_3(){
+                var new_color_2_7 = document.getElementById("3-7").style.backgroundColor;
+                var new_color_2_8 = document.getElementById("3-8").style.backgroundColor;
+                var new_color_2_9 = document.getElementById("3-9").style.backgroundColor;
+                
+                var new_color_3_7 = document.getElementById("4-7").style.backgroundColor;
+                var new_color_3_8 = document.getElementById("4-8").style.backgroundColor;
+                var new_color_3_9 = document.getElementById("4-9").style.backgroundColor;
+                
+                var new_color_4_7 = document.getElementById("6-7").style.backgroundColor;
+                var new_color_4_8 = document.getElementById("6-8").style.backgroundColor;
+                var new_color_4_9 = document.getElementById("6-9").style.backgroundColor;
+                
+                var new_color_6_7 = document.getElementById("2-7").style.backgroundColor;
+                var new_color_6_8 = document.getElementById("2-8").style.backgroundColor;
+                var new_color_6_9 = document.getElementById("2-9").style.backgroundColor;
+                
+                var new_color_5_1 = document.getElementById("5-3").style.backgroundColor;
+                var new_color_5_2 = document.getElementById("5-6").style.backgroundColor;
+                var new_color_5_3 = document.getElementById("5-9").style.backgroundColor;
+                var new_color_5_4 = document.getElementById("5-2").style.backgroundColor;
+                var new_color_5_6 = document.getElementById("5-8").style.backgroundColor;
+                var new_color_5_7 = document.getElementById("5-1").style.backgroundColor;
+                var new_color_5_8 = document.getElementById("5-4").style.backgroundColor;
+                var new_color_5_9 = document.getElementById("5-7").style.backgroundColor;
+                
+                document.getElementById("2-7").style.backgroundColor = new_color_2_7;
+                document.getElementById("2-8").style.backgroundColor = new_color_2_8;
+                document.getElementById("2-9").style.backgroundColor = new_color_2_9;  
+                
+                document.getElementById("3-7").style.backgroundColor = new_color_3_7;
+                document.getElementById("3-8").style.backgroundColor = new_color_3_8;
+                document.getElementById("3-9").style.backgroundColor = new_color_3_9;  
+                
+                document.getElementById("4-7").style.backgroundColor = new_color_4_7;
+                document.getElementById("4-8").style.backgroundColor = new_color_4_8;
+                document.getElementById("4-9").style.backgroundColor = new_color_4_9;  
+                
+                document.getElementById("6-7").style.backgroundColor = new_color_6_7;
+                document.getElementById("6-8").style.backgroundColor = new_color_6_8;
+                document.getElementById("6-9").style.backgroundColor = new_color_6_9;  
+                
+                document.getElementById("5-1").style.backgroundColor = new_color_5_1;
+                document.getElementById("5-2").style.backgroundColor = new_color_5_2;
+                document.getElementById("5-3").style.backgroundColor = new_color_5_3;
+                document.getElementById("5-4").style.backgroundColor = new_color_5_4;
+                document.getElementById("5-6").style.backgroundColor = new_color_5_6;
+                document.getElementById("5-7").style.backgroundColor = new_color_5_7;
+                document.getElementById("5-8").style.backgroundColor = new_color_5_8;
+                document.getElementById("5-9").style.backgroundColor = new_color_5_9;
+            }
+            
+            function rotate_horizontal_right_1(){
+                var new_color_2_1 = document.getElementById("6-1").style.backgroundColor;
+                var new_color_2_2 = document.getElementById("6-2").style.backgroundColor;
+                var new_color_2_3 = document.getElementById("6-3").style.backgroundColor;
+                
+                var new_color_3_1 = document.getElementById("2-1").style.backgroundColor;
+                var new_color_3_2 = document.getElementById("2-2").style.backgroundColor;
+                var new_color_3_3 = document.getElementById("2-3").style.backgroundColor;
+                
+                var new_color_4_1 = document.getElementById("3-1").style.backgroundColor;
+                var new_color_4_2 = document.getElementById("3-2").style.backgroundColor;
+                var new_color_4_3 = document.getElementById("3-3").style.backgroundColor;
+                
+                var new_color_6_1 = document.getElementById("4-1").style.backgroundColor;
+                var new_color_6_2 = document.getElementById("4-2").style.backgroundColor;
+                var new_color_6_3 = document.getElementById("4-3").style.backgroundColor;
+                
+                var new_color_1_1 = document.getElementById("1-3").style.backgroundColor;
+                var new_color_1_2 = document.getElementById("1-6").style.backgroundColor;
+                var new_color_1_3 = document.getElementById("1-9").style.backgroundColor;
+                var new_color_1_4 = document.getElementById("1-2").style.backgroundColor;
+                var new_color_1_6 = document.getElementById("1-8").style.backgroundColor;
+                var new_color_1_7 = document.getElementById("1-1").style.backgroundColor;
+                var new_color_1_8 = document.getElementById("1-4").style.backgroundColor;
+                var new_color_1_9 = document.getElementById("1-7").style.backgroundColor;                
+                
+                document.getElementById("2-1").style.backgroundColor = new_color_2_1;
+                document.getElementById("2-2").style.backgroundColor = new_color_2_2;
+                document.getElementById("2-3").style.backgroundColor = new_color_2_3;  
+                
+                document.getElementById("3-1").style.backgroundColor = new_color_3_1;
+                document.getElementById("3-2").style.backgroundColor = new_color_3_2;
+                document.getElementById("3-3").style.backgroundColor = new_color_3_3;  
+                
+                document.getElementById("4-1").style.backgroundColor = new_color_4_1;
+                document.getElementById("4-2").style.backgroundColor = new_color_4_2;
+                document.getElementById("4-3").style.backgroundColor = new_color_4_3;  
+                
+                document.getElementById("6-1").style.backgroundColor = new_color_6_1;
+                document.getElementById("6-2").style.backgroundColor = new_color_6_2;
+                document.getElementById("6-3").style.backgroundColor = new_color_6_3;  
+                
+                document.getElementById("1-1").style.backgroundColor = new_color_1_1;
+                document.getElementById("1-2").style.backgroundColor = new_color_1_2;
+                document.getElementById("1-3").style.backgroundColor = new_color_1_3;
+                document.getElementById("1-4").style.backgroundColor = new_color_1_4;
+                document.getElementById("1-6").style.backgroundColor = new_color_1_6;
+                document.getElementById("1-7").style.backgroundColor = new_color_1_7;
+                document.getElementById("1-8").style.backgroundColor = new_color_1_8;
+                document.getElementById("1-9").style.backgroundColor = new_color_1_9;
+            }
+            
+            function rotate_horizontal_right_2(){
+                var new_color_2_4 = document.getElementById("6-4").style.backgroundColor;
+                var new_color_2_5 = document.getElementById("6-5").style.backgroundColor;
+                var new_color_2_6 = document.getElementById("6-6").style.backgroundColor;
+                
+                var new_color_3_4 = document.getElementById("2-4").style.backgroundColor;
+                var new_color_3_5 = document.getElementById("2-5").style.backgroundColor;
+                var new_color_3_6 = document.getElementById("2-6").style.backgroundColor;
+                
+                var new_color_4_4 = document.getElementById("3-4").style.backgroundColor;
+                var new_color_4_5 = document.getElementById("3-5").style.backgroundColor;
+                var new_color_4_6 = document.getElementById("3-6").style.backgroundColor;
+                
+                var new_color_6_4 = document.getElementById("4-4").style.backgroundColor;
+                var new_color_6_5 = document.getElementById("4-5").style.backgroundColor;
+                var new_color_6_6 = document.getElementById("4-6").style.backgroundColor;
+                
+                document.getElementById("2-4").style.backgroundColor = new_color_2_4;
+                document.getElementById("2-5").style.backgroundColor = new_color_2_5;
+                document.getElementById("2-6").style.backgroundColor = new_color_2_6;  
+                
+                document.getElementById("3-4").style.backgroundColor = new_color_3_4;
+                document.getElementById("3-5").style.backgroundColor = new_color_3_5;
+                document.getElementById("3-6").style.backgroundColor = new_color_3_6;  
+                
+                document.getElementById("4-4").style.backgroundColor = new_color_4_4;
+                document.getElementById("4-5").style.backgroundColor = new_color_4_5;
+                document.getElementById("4-6").style.backgroundColor = new_color_4_6;  
+                
+                document.getElementById("6-4").style.backgroundColor = new_color_6_4;
+                document.getElementById("6-5").style.backgroundColor = new_color_6_5;
+                document.getElementById("6-6").style.backgroundColor = new_color_6_6;  
+            }
+            
+            function rotate_horizontal_right_3(){
+                var new_color_2_7 = document.getElementById("6-7").style.backgroundColor;
+                var new_color_2_8 = document.getElementById("6-8").style.backgroundColor;
+                var new_color_2_9 = document.getElementById("6-9").style.backgroundColor;
+                
+                var new_color_3_7 = document.getElementById("2-7").style.backgroundColor;
+                var new_color_3_8 = document.getElementById("2-8").style.backgroundColor;
+                var new_color_3_9 = document.getElementById("2-9").style.backgroundColor;
+                
+                var new_color_4_7 = document.getElementById("3-7").style.backgroundColor;
+                var new_color_4_8 = document.getElementById("3-8").style.backgroundColor;
+                var new_color_4_9 = document.getElementById("3-9").style.backgroundColor;
+                
+                var new_color_6_7 = document.getElementById("4-7").style.backgroundColor;
+                var new_color_6_8 = document.getElementById("4-8").style.backgroundColor;
+                var new_color_6_9 = document.getElementById("4-9").style.backgroundColor;
+                
+                var new_color_5_1 = document.getElementById("5-7").style.backgroundColor;
+                var new_color_5_2 = document.getElementById("5-4").style.backgroundColor;
+                var new_color_5_3 = document.getElementById("5-1").style.backgroundColor;
+                var new_color_5_4 = document.getElementById("5-8").style.backgroundColor;
+                var new_color_5_6 = document.getElementById("5-2").style.backgroundColor;
+                var new_color_5_7 = document.getElementById("5-9").style.backgroundColor;
+                var new_color_5_8 = document.getElementById("5-6").style.backgroundColor;
+                var new_color_5_9 = document.getElementById("5-3").style.backgroundColor;
+                
+                document.getElementById("2-7").style.backgroundColor = new_color_2_7;
+                document.getElementById("2-8").style.backgroundColor = new_color_2_8;
+                document.getElementById("2-9").style.backgroundColor = new_color_2_9;  
+                
+                document.getElementById("3-7").style.backgroundColor = new_color_3_7;
+                document.getElementById("3-8").style.backgroundColor = new_color_3_8;
+                document.getElementById("3-9").style.backgroundColor = new_color_3_9;  
+                
+                document.getElementById("4-7").style.backgroundColor = new_color_4_7;
+                document.getElementById("4-8").style.backgroundColor = new_color_4_8;
+                document.getElementById("4-9").style.backgroundColor = new_color_4_9;  
+                
+                document.getElementById("6-7").style.backgroundColor = new_color_6_7;
+                document.getElementById("6-8").style.backgroundColor = new_color_6_8;
+                document.getElementById("6-9").style.backgroundColor = new_color_6_9; 
+                
+                document.getElementById("5-1").style.backgroundColor = new_color_5_1;
+                document.getElementById("5-2").style.backgroundColor = new_color_5_2;
+                document.getElementById("5-3").style.backgroundColor = new_color_5_3;
+                document.getElementById("5-4").style.backgroundColor = new_color_5_4;                
+                document.getElementById("5-6").style.backgroundColor = new_color_5_6;
+                document.getElementById("5-7").style.backgroundColor = new_color_5_7;
+                document.getElementById("5-8").style.backgroundColor = new_color_5_8;
+                document.getElementById("5-9").style.backgroundColor = new_color_5_9;
+            }
+            
+            function rotate_vertical_down_1(){
+                var new_color_1_1 = document.getElementById("6-1").style.backgroundColor;
+                var new_color_1_4 = document.getElementById("6-4").style.backgroundColor;
+                var new_color_1_7 = document.getElementById("6-7").style.backgroundColor;
+                
+                var new_color_3_1 = document.getElementById("1-1").style.backgroundColor;
+                var new_color_3_4 = document.getElementById("1-4").style.backgroundColor;
+                var new_color_3_7 = document.getElementById("1-7").style.backgroundColor;
+                
+                var new_color_5_1 = document.getElementById("3-1").style.backgroundColor;
+                var new_color_5_4 = document.getElementById("3-4").style.backgroundColor;
+                var new_color_5_7 = document.getElementById("3-7").style.backgroundColor;
+                
+                var new_color_6_1 = document.getElementById("5-1").style.backgroundColor;
+                var new_color_6_4 = document.getElementById("5-4").style.backgroundColor;
+                var new_color_6_7 = document.getElementById("5-7").style.backgroundColor;
+                
+                var new_color_2_1 = document.getElementById("2-7").style.backgroundColor;
+                var new_color_2_2 = document.getElementById("2-4").style.backgroundColor;
+                var new_color_2_3 = document.getElementById("2-1").style.backgroundColor;
+                var new_color_2_4 = document.getElementById("2-8").style.backgroundColor;
+                var new_color_2_6 = document.getElementById("2-2").style.backgroundColor;
+                var new_color_2_7 = document.getElementById("2-9").style.backgroundColor;
+                var new_color_2_8 = document.getElementById("2-6").style.backgroundColor;
+                var new_color_2_9 = document.getElementById("2-3").style.backgroundColor;
+                
+                document.getElementById("1-1").style.backgroundColor = new_color_1_1;
+                document.getElementById("1-4").style.backgroundColor = new_color_1_4;
+                document.getElementById("1-7").style.backgroundColor = new_color_1_7;  
+                
+                document.getElementById("3-1").style.backgroundColor = new_color_3_1;
+                document.getElementById("3-4").style.backgroundColor = new_color_3_4;
+                document.getElementById("3-7").style.backgroundColor = new_color_3_7;  
+                
+                document.getElementById("5-1").style.backgroundColor = new_color_5_1;
+                document.getElementById("5-4").style.backgroundColor = new_color_5_4;
+                document.getElementById("5-7").style.backgroundColor = new_color_5_7;  
+                
+                document.getElementById("6-1").style.backgroundColor = new_color_6_1;
+                document.getElementById("6-4").style.backgroundColor = new_color_6_4;
+                document.getElementById("6-7").style.backgroundColor = new_color_6_7;  
+                
+                document.getElementById("2-1").style.backgroundColor = new_color_2_1;
+                document.getElementById("2-2").style.backgroundColor = new_color_2_2;
+                document.getElementById("2-3").style.backgroundColor = new_color_2_3;
+                document.getElementById("2-4").style.backgroundColor = new_color_2_4;
+                document.getElementById("2-6").style.backgroundColor = new_color_2_6;
+                document.getElementById("2-7").style.backgroundColor = new_color_2_7;
+                document.getElementById("2-8").style.backgroundColor = new_color_2_8;
+                document.getElementById("2-9").style.backgroundColor = new_color_2_9;
+            }
+            
+            function rotate_vertical_down_2(){
+                var new_color_1_2 = document.getElementById("6-2").style.backgroundColor;
+                var new_color_1_5 = document.getElementById("6-5").style.backgroundColor;
+                var new_color_1_8 = document.getElementById("6-8").style.backgroundColor;
+                
+                var new_color_3_2 = document.getElementById("1-2").style.backgroundColor;
+                var new_color_3_5 = document.getElementById("1-5").style.backgroundColor;
+                var new_color_3_8 = document.getElementById("1-8").style.backgroundColor;
+                
+                var new_color_5_2 = document.getElementById("3-2").style.backgroundColor;
+                var new_color_5_5 = document.getElementById("3-5").style.backgroundColor;
+                var new_color_5_8 = document.getElementById("3-8").style.backgroundColor;
+                
+                var new_color_6_2 = document.getElementById("5-2").style.backgroundColor;
+                var new_color_6_5 = document.getElementById("5-5").style.backgroundColor;
+                var new_color_6_8 = document.getElementById("5-8").style.backgroundColor;
+                
+                document.getElementById("1-2").style.backgroundColor = new_color_1_2;
+                document.getElementById("1-5").style.backgroundColor = new_color_1_5;
+                document.getElementById("1-8").style.backgroundColor = new_color_1_8;  
+                
+                document.getElementById("3-2").style.backgroundColor = new_color_3_2;
+                document.getElementById("3-5").style.backgroundColor = new_color_3_5;
+                document.getElementById("3-8").style.backgroundColor = new_color_3_8;  
+                
+                document.getElementById("5-2").style.backgroundColor = new_color_5_2;
+                document.getElementById("5-5").style.backgroundColor = new_color_5_5;
+                document.getElementById("5-8").style.backgroundColor = new_color_5_8;  
+                
+                document.getElementById("6-2").style.backgroundColor = new_color_6_2;
+                document.getElementById("6-5").style.backgroundColor = new_color_6_5;
+                document.getElementById("6-8").style.backgroundColor = new_color_6_8;  
+            }
+            
+            function rotate_vertical_down_3(){
+                var new_color_1_3 = document.getElementById("6-3").style.backgroundColor;
+                var new_color_1_6 = document.getElementById("6-6").style.backgroundColor;
+                var new_color_1_9 = document.getElementById("6-9").style.backgroundColor;
+                
+                var new_color_3_3 = document.getElementById("1-3").style.backgroundColor;
+                var new_color_3_6 = document.getElementById("1-6").style.backgroundColor;
+                var new_color_3_9 = document.getElementById("1-9").style.backgroundColor;
+                
+                var new_color_5_3 = document.getElementById("3-3").style.backgroundColor;
+                var new_color_5_6 = document.getElementById("3-6").style.backgroundColor;
+                var new_color_5_9 = document.getElementById("3-9").style.backgroundColor;
+                
+                var new_color_6_3 = document.getElementById("5-3").style.backgroundColor;
+                var new_color_6_6 = document.getElementById("5-6").style.backgroundColor;
+                var new_color_6_9 = document.getElementById("5-9").style.backgroundColor;
+                
+                var new_color_4_1 = document.getElementById("4-3").style.backgroundColor;
+                var new_color_4_2 = document.getElementById("4-6").style.backgroundColor;
+                var new_color_4_3 = document.getElementById("4-9").style.backgroundColor;
+                var new_color_4_4 = document.getElementById("4-2").style.backgroundColor;
+                var new_color_4_6 = document.getElementById("4-8").style.backgroundColor;
+                var new_color_4_7 = document.getElementById("4-1").style.backgroundColor;
+                var new_color_4_8 = document.getElementById("4-4").style.backgroundColor;
+                var new_color_4_9 = document.getElementById("4-7").style.backgroundColor;
+                
+                document.getElementById("1-3").style.backgroundColor = new_color_1_3;
+                document.getElementById("1-6").style.backgroundColor = new_color_1_6;
+                document.getElementById("1-9").style.backgroundColor = new_color_1_9;  
+                
+                document.getElementById("3-3").style.backgroundColor = new_color_3_3;
+                document.getElementById("3-6").style.backgroundColor = new_color_3_6;
+                document.getElementById("3-9").style.backgroundColor = new_color_3_9;  
+                
+                document.getElementById("5-3").style.backgroundColor = new_color_5_3;
+                document.getElementById("5-6").style.backgroundColor = new_color_5_6;
+                document.getElementById("5-9").style.backgroundColor = new_color_5_9;  
+                
+                document.getElementById("6-3").style.backgroundColor = new_color_6_3;
+                document.getElementById("6-6").style.backgroundColor = new_color_6_6;
+                document.getElementById("6-9").style.backgroundColor = new_color_6_9; 
+                
+                document.getElementById("4-1").style.backgroundColor = new_color_4_1;
+                document.getElementById("4-2").style.backgroundColor = new_color_4_2;
+                document.getElementById("4-3").style.backgroundColor = new_color_4_3;
+                document.getElementById("4-4").style.backgroundColor = new_color_4_4;
+                document.getElementById("4-6").style.backgroundColor = new_color_4_6;
+                document.getElementById("4-7").style.backgroundColor = new_color_4_7;
+                document.getElementById("4-8").style.backgroundColor = new_color_4_8;
+                document.getElementById("4-9").style.backgroundColor = new_color_4_9;
+            }
+                            
+        </script>
+        
+    </body>
+</html>
